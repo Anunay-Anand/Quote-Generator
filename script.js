@@ -40,4 +40,17 @@ async function getQuotes() {
     console.log(e);
   }
 }
+
+// Tweet the Quote (Web Intent)
+// Facebook, Instagram probably has similar lines of code for automated filling
+function tweetQuote() {
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(twitterUrl, "_blank");
+}
+
+// Event listeners
+twitterBtn.addEventListener("click", tweetQuote);
+newQuoteBtn.addEventListener("click", newQuote);
+
+// On Load
 getQuotes();
